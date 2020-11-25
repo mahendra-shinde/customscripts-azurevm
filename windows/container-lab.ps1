@@ -1,3 +1,4 @@
+## You need to restart vm after script finishes!
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All -NoRestart 
 Enable-WindowsOptionalFeature -Online -FeatureName Containers -All -NoRestart
 
