@@ -8,7 +8,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Containers -All -NoRestart
 New-LocalGroup -Name docker-users -Description "Users of Docker Desktop"
 Add-LocalGroupMember -Group 'docker-users' -Member $UserName
 
-choco install docker-desktop git vscode -y;
+choco install docker-desktop git vscode -y
 
 $trig = New-ScheduledTaskTrigger -AtLogOn 
 $task = New-ScheduledTaskAction -Execute "C:\Program Files\Docker\Docker\Docker Desktop.exe" 
