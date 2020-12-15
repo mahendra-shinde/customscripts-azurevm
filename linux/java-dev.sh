@@ -28,4 +28,4 @@ Name=Eclipse-JEE
 EOF
 echo "Exec=/home/$USERNAME/eclipse/eclipse" >> eclipse-ide.desktop
 echo "Icon=/home/$USERNAME/eclipse/icon.xpm" >> eclipse-ide.desktop
-chmod a+x /home/$USERNAME/Desktop/eclipde-ide.desktop
+chmod a+x /home/$USERNAME/Desktop/eclipse-ide.desktop
