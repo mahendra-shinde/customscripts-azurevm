@@ -13,10 +13,11 @@ $password = ConvertTo-SecureString 'Password@1234' -AsPlainText -Force
 
 for ($i = 1 ; $i -le $Count ; $i++)
 {
-$credential = New-Object System.Management.Automation.PSCredential("Student$i", $password)
 $Username = "Student$i"
+$credential = New-Object System.Management.Automation.PSCredential($Username, $password)
 $ScriptCommand= "bash java-dev.sh $Username"
-## Launch ALL VMs in Parallel (By launching vm creation script as a Background Job)
+# Launch task sequentially
 ./vm-create.ps1 $GroupName  "LabVM$i"  $Credential $Location $DNS  $ScriptPath $ScriptCommand
+## Launch ALL VMs in Parallel (By launching vm creation script as a Background Job)
 #Start-job -name "PrepareVM$i" -filepath ./vm-create.ps1 -ArgumentList  $GroupName, "LabVM$i", $credential, $Location , "lab000vm$i",  $ScriptPath , $ScriptCommand  
 }

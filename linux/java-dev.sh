@@ -1,4 +1,4 @@
-USERNAME=Student5
+USERNAME=$1
 export DEBIAN_FRONTEND=noninteractive
 apt update -y
 apt install software-properties-common apt-transport-https wget git -y

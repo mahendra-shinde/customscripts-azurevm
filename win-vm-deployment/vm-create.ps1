@@ -9,6 +9,7 @@ New-AzVm `
     -VirtualNetworkName $VNet `
     -SubnetName "Subnet1" `
     -SecurityGroupName "LabNSG" `
+    -AllocationMethod Dynamic `
     -PublicIpAddressName $pip `
     -DomainNameLabel $DNS `
     -OpenPorts 3389 `
