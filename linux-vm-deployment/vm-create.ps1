@@ -26,5 +26,6 @@ Set-AzVMExtension -ResourceGroupName $GroupName `
     -Name script1 `
     -Publisher 'Microsoft.Azure.Extensions' `
     -settings $settings `
-    -typeHandlerVersion 2.0
+    -typeHandlerVersion 2.0 `
+    -asJob
 

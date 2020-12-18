@@ -2,7 +2,7 @@ USERNAME=$1
 export DEBIAN_FRONTEND=noninteractive
 apt update -y
 apt install software-properties-common apt-transport-https wget git -y
-apt install ubuntu-mate-desktop openjdk-8-jdk git docker.io maven -y
+apt install ubuntu-desktop openjdk-8-jdk docker.io maven -y
 usermod -aG docker $USERNAME
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
 AZ_REPO=$(lsb_release -cs)
@@ -18,10 +18,13 @@ chmod a+x /home/$USERNAME/Desktop/code.desktop
 wget https://download.nomachine.com/download/6.12/Linux/nomachine_6.12.3_7_amd64.deb
 dpkg -i nomachine_6.12.3_7_amd64.deb
 cd /home/$USERNAME/
+echo "Set the XRDP Session to UbuntuSession"
+echo "ubuntu-session" > .xsession
 echo "Downloading and extracting eclipse ide"
 curl https://ftp.jaist.ac.jp/pub/eclipse/technology/epp/downloads/release/photon/R/eclipse-jee-photon-R-linux-gtk-x86_64.tar.gz | tar -xz
 echo "Downloading and extracting Tomcat-9 in /home/$USERNAME directory"
 curl https://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.41/bin/apache-tomcat-9.0.41.tar.gz | tar -xz
+cd /home/$USERNAME/Desktop
 cat > eclipse-ide.desktop << EOF
 [Desktop Entry]
 Type=Application
@@ -31,3 +34,4 @@ EOF
 echo "Exec=/home/$USERNAME/eclipse/eclipse" >> eclipse-ide.desktop
 echo "Icon=/home/$USERNAME/eclipse/icon.xpm" >> eclipse-ide.desktop
 chmod a+x /home/$USERNAME/Desktop/eclipse-ide.desktop
+chown $USERNAME:$USERNAME *.desktop
