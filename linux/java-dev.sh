@@ -1,13 +1,15 @@
-USERNAME=$1
+USERNAME=Student5
 export DEBIAN_FRONTEND=noninteractive
 apt update -y
 apt install software-properties-common apt-transport-https wget git -y
 apt install ubuntu-mate-desktop openjdk-8-jdk git docker.io maven -y
 usermod -aG docker $USERNAME
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+AZ_REPO=$(lsb_release -cs)
 add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" 
 apt update -y
-apt install -y code
+apt install -y code azure-cli
 echo "Creating a desktop shortcut for VSCode"
 cp /usr/share/applications/code.desktop /home/$USERNAME/Desktop/code.desktop
 chmod a+x /home/$USERNAME/Desktop/code.desktop
