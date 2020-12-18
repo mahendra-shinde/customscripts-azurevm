@@ -11,6 +11,8 @@ add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/azure-
 apt update -y
 apt install -y code azure-cli
 echo "Creating a desktop shortcut for VSCode"
+mkdir -p /home/$USERNAME/Desktop
+cd /home/$USERNAME/Desktop
 cp /usr/share/applications/code.desktop /home/$USERNAME/Desktop/code.desktop
 chmod a+x /home/$USERNAME/Desktop/code.desktop
 wget https://download.nomachine.com/download/6.12/Linux/nomachine_6.12.3_7_amd64.deb
@@ -20,8 +22,6 @@ echo "Downloading and extracting eclipse ide"
 curl https://ftp.jaist.ac.jp/pub/eclipse/technology/epp/downloads/release/photon/R/eclipse-jee-photon-R-linux-gtk-x86_64.tar.gz | tar -xz
 echo "Downloading and extracting Tomcat-9 in /home/$USERNAME directory"
 curl https://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.41/bin/apache-tomcat-9.0.41.tar.gz | tar -xz
-mkdir -p /home/$USERNAME/Desktop
-cd /home/$USERNAME/Desktop
 cat > eclipse-ide.desktop << EOF
 [Desktop Entry]
 Type=Application

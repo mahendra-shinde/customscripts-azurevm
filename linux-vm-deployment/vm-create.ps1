@@ -6,7 +6,7 @@ New-AzVm `
     -Name $VMName `
     -Credential $credential `
     -Location $Location `
-    -Image "Canonical:UbuntuServer:18.04-LTS:18.04.202012111" `
+    -Image "Canonical:0001-com-ubuntu-server-focal:20_04-lts:20.04.202012110" `
     -AllocationMethod Dynamic `
     -VirtualNetworkName $VNet `
     -SubnetName "Subnet1" `
