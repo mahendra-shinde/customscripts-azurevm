@@ -24,7 +24,7 @@ echo "@reboot minikube start --nodes 2 --driver=docker" >> mycron
 crontab -u $MYUSER mycron
 rm mycron
 echo "Installing NoMachine Server for Remote Desktop connection on NX port"
-wget https://download.nomachine.com/download/6.12/Linux/nomachine_6.12.3_7_amd64.deb
+wget https://download.nomachine.com/download/7.6/Linux/nomachine_7.6.2_4_amd64.deb
 apt install ubuntu-desktop-minimal -y
-dpkg -i nomachine_6.12.3_7_amd64.deb
+dpkg -i nomachine_7.6.2_4_amd64.deb
 reboot
